@@ -90,8 +90,9 @@ function App() {
             onChange={(e) => setMessage(e.target.value)}
             value={message}
             onKeyPress={handleKeyPress}
+            disabled={websckt?.readyState === 0}
           ></input>
-          <button className="submit-chat" onClick={sendMessage}>
+          <button disabled={websckt?.readyState === 0} className="submit-chat" onClick={sendMessage}>
             Send
           </button>
         </div>
