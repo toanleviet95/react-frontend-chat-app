@@ -12,7 +12,7 @@ function App() {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    const url = "ws://backend-chat-app-ybtm.onrender.com:1000/" + clientId;
+    const url = "wss://backend-chat-app-ybtm.onrender.com:1000/" + clientId;
     const ws = new WebSocket(url);
 
     ws.onopen = (event) => {
