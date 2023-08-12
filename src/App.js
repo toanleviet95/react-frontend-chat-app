@@ -42,6 +42,12 @@ function App() {
     setMessage([]);
   };
   
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      sendMessage();
+    }
+  }
+  
   return (
     <div className="container">
       <h1>Chat</h1>
@@ -83,6 +89,7 @@ function App() {
             placeholder="Chat message ..."
             onChange={(e) => setMessage(e.target.value)}
             value={message}
+            onKeyPress={handleKeyPress}
           ></input>
           <button className="submit-chat" onClick={sendMessage}>
             Send
