@@ -45,7 +45,12 @@ function App() {
   return (
     <div className="container">
       <h1>Chat</h1>
-      <div>{websckt?.readyState === 1 ? 'Still waiting for server connect...' : ''}</div>
+      <div>
+        {websckt?.readyState === 3 ? 'Websocket closed.' : ''}
+      </div>
+      <div>
+        {websckt?.readyState === 0 ? 'Websocket is connecting...' : ''}
+      </div>
       <h2>Your client id: {clientId} </h2>
       <div className="chat-container">
         <div className="chat">
