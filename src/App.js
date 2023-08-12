@@ -12,10 +12,11 @@ function App() {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    const url = "ws://localhost:8000/ws/" + clientId;
+    const url = "ws://backend-chat-app-ybtm.onrender.com:1000/" + clientId;
     const ws = new WebSocket(url);
 
     ws.onopen = (event) => {
+      console.log('connect...');
       ws.send("Connect");
     };
 
@@ -40,10 +41,11 @@ function App() {
     };
     setMessage([]);
   };
-
+  
   return (
     <div className="container">
       <h1>Chat</h1>
+      <div>{websckt?.readyState === 1 ? 'Still waiting for server connect...' : ''}</div>
       <h2>Your client id: {clientId} </h2>
       <div className="chat-container">
         <div className="chat">
